@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin_home</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-2 bg-success nav" >
+            
+            <div>
+                <img src="{% static 'images/pp.webp' %}" class="admin_img " alt="" style="width: 200px;
+                height: 200px;padding-left: 50px;
+                padding-top: 40px;
+                border-radius: 100px;">
+            </div>
+
+            <div class="">
+                <ul class="list text-light" style="padding-left: 60px;
+                font-size: larger;
+                list-style-type: none;">
+                    <li><a href="{% url 'ecom_admin:approvecust' %}" class="li0" style=" text-decoration: none;
+                        color: white;">approve_cust</a> </li> <br>
+                    <li><a href="{% url 'ecom_admin:approveseller' %}" class="li0" style="text-decoration: none;
+                        color: white;">approve_seller </a> </li> <br>
+                    <li><a href="{% url 'ecom_admin:viewcust' %}" class="li0" style="text-decoration: none;
+                        color: white;">View_Cust </a></li> <br>
+                    <li><a href="{% url 'ecom_admin:viewseller' %}" class="li0" style="text-decoration: none;
+                        color: white;">View_Seller </a></li> <br>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-10">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

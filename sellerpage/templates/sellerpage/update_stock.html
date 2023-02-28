@@ -1,0 +1,68 @@
+{% extends 'sellerpage/seller_home.html' %}
+
+{% block content %}
+
+{% load static %}
+<div>
+    <h1 class="text-center"></h1>
+</div>
+<div style="background-color: rgb(113, 223, 172); height: 550px;">
+    <div class="div1 mt-5 ms-5 p-4">
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" id="p_id" name="pro_id"><br><br>
+            <div class="mb-3">
+                <label class="form-check-label" for="exampleCheck1">PRODUCT NUMBER</label>
+                <select name="product_no" id="p_no" aria-placeholder="product number">
+                    <option disabled selected>select product</option>
+                    {% for product in data_stock %}
+                    <option value="{{product.id}}">{{product.product_number}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">PRODUCT NAME </label>
+                <input type="text" name="p_name" class="form-control" readonly id="pr_name" aria-describedby="">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">CURRENT STOCK </label>
+                <input type="text" name="p_stock" class="form-control" readonly id="c_stock" aria-describedby="">
+            </div>
+            <div class="mb-3">
+                <label class="form-check-label" for="exampleCheck1">NEW STOCK</label>
+                <input type="number" name="new_stock" class="" id="n_stock">
+            </div>
+            <button type="submit" class="btn btn-primary">UPDATE</button><br>
+            {{msg}}
+        </form>
+    </div>
+
+</div>
+<script>
+    $('#p_no').change(function () {
+        $.ajaxSetup({
+            headers: {
+                "X-CSRFToken": $('[name=csrfmiddlewaretoken]').val()
+            }
+        })
+        $.ajax({
+            url: '{% url "sellerpage:up_stock" %}',
+            type: 'POST',
+
+            data: {
+                id: $(this).val()
+            },
+            success: function (response) {
+
+                console.log(response.pro_name)
+                console.log(response.stock)
+                $('#pr_name').val(response.pro_name)
+                $('#c_stock').val(response.stock)
+                $('#p_id').val(response.pr_id)
+            }
+
+        })
+    })
+</script>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+ <div class="row">
+        <div class="col-md-2 nav" style="background-color: rgb(43, 43, 97);">
+            <div class="text-center admin_name">
+                <h3 style="padding-left: 50px; padding-top: 10px;color:rgb(242, 6, 6)"><b><i>CUSTOMER NAME :{{data.customer_name}}</i></b></h3>
+            </div>
+            <div>
+                <a href="{% url 'customer:myprofile' %}"><img src="{% static 'images/ku.jpg' %}" class="admin_img "
+                        alt="" style="width: 200px;
+                    height: 200px;padding-left: 50px;
+                    padding-top: 50px;
+                    border-radius: 100px;"></a>
+            </div>
+
+            <div class="p-4" style="height: 100vh;">
+                <ul class="list text-light" style="padding-left: 60px;
+                font-size: larger;
+                list-style-type: none;">
+                    <li><a href="{% url 'customer:customer_home' %}" class="li0" style=" text-decoration: none;
+                    color: white;">home</a> </li> <br>
+                    <li><a href="{% url 'customer:cart' %}" class="li0" style=" text-decoration: none;
+                        color: white;">mycart</a> </li> <br>
+                    <li><a href="{% url 'customer:cat_l' %}" class="li0" style="text-decoration: none;
+                        color: white;">products </a> </li> <br>
+                    <li><a href="{% url 'customer:c_custpass' %}" class="li0" style="text-decoration: none;
+                        color: white;">change password </a></li> <br>
+                    <li><a href="{% url 'customer:myorder' %}" class="li0" style="text-decoration: none;
+                        color: white;">my order</a></li> <br>
+                    <!-- <li><a href="" class="li0" style="text-decoration: none;
+                        color: white;"></a></li> <br> -->
+                    <li><a href="{% url 'customer:logout_cust' %}" class="li0" style="text-decoration: none;
+                        color: white;">logout</a></li> <br>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-10" ;>
+            <!-- <h1 style="text-align: center; color:rgb(235, 58, 94)"><p><i>WELLCOME TO DIO-MATT</i></p></h1> -->

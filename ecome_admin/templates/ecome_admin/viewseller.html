@@ -1,0 +1,50 @@
+{% extends 'ecome_admin/admin_home.html' %}
+
+{% block content %}
+    <div class="text-center p-4">
+        <h1>VIEW SELLER</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            
+            <div class="">
+                <table class="table">
+                    <thead>
+                    <th>Seller Name</th>
+                    <th>Profile</th>
+                    <th>Address</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Company Name</th>
+                    <th>Account Holder Name</th>
+                    <th>IFSC</th>
+                    <th>Account Number</th>
+                    <th>Password</th>
+                    
+                    </thead>
+                    <tbody>
+                    
+                        {% for seller in sell_list %}
+                    <tr class="">
+                        <td>{{seller.seller_name}}</td>
+                        <td><img src="{{seller.seller_pic.url}}" alt=""></td>
+                        <td>{{seller.seller_address}}</td>
+                        <td>{{seller.seller_phone}}</td>
+                        <td>{{seller.seller_email}}</td>
+                        <td>{{seller.seller_companyname}}</td>
+                        <td>{{seller.seller_accholdername}}</td>
+                        <td>{{seller.seller_ifsc}}</td>
+                        <td>{{seller.seller_accno}}</td>
+                        <td>{{seller.seller_password}}</td>
+                    </tr>
+                      {% endfor %}  
+                       
+                    
+                    </tbody>
+                </table>
+            </div>
+    
+        </div>
+    </div>
+    {% endblock %}

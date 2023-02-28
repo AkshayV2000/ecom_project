@@ -1,0 +1,37 @@
+ <div class="row">
+        <div class="col-md-2 bg-success nav">
+            <div class="text-center admin_nmae">
+                <h3 style="padding-left: 50px; padding-top: 10px;color:brown"><b><i>SELLER NAME :<b>{{data.seller_name}}</b></i></b></h3>
+            </div>
+            <div>
+                <img src="{% static 'images/0x0.jpg' %}" class="admin_img " alt="" style="width: 200px;
+                height: 200px;padding-left: 50px;
+                padding-top: 50px;
+                border-radius: 100px;">
+            </div>
+
+            <div class="p-4" style="height: 100vh;">
+                <ul class="list text-light" style="padding-left: 60px;
+                font-size: larger;
+                list-style-type: none;">
+                    <li><a href="{% url 'sellerpage:sellerhome' %}" class="li0" style=" text-decoration: none;
+                    color: white;"> home</a> </li> <br>
+                    <li><a href="{% url 'sellerpage:profile' %}" class="li0" style=" text-decoration: none;
+                        color: white;"> profile</a> </li> <br>
+                    <li><a href="{% url 'sellerpage:addproduct' %}" class="li0" style=" text-decoration: none;
+                        color: white;"> products</a> </li> <br>
+                    <li><a href="{% url 'sellerpage:productcatolog' %}" class="li0" style="text-decoration: none;
+                        color: white;">catalog </a> </li> <br>
+                    <li><a href="{% url 'sellerpage:c_password' %}" class="li0" style="text-decoration: none;
+                        color: white;">change password </a></li> <br>
+                    <li><a href="{% url 'sellerpage:o_history' %}" class="li0" style="text-decoration: none;
+                        color: white;">order history</a></li> <br>
+                    <li><a href="{% url 'sellerpage:update_stock' %}" class="li0" style="text-decoration: none;
+                        color: white;">update stocks</a></li> <br>
+                    <li><a href="{% url 'sellerpage:recent_history' %}" class="li0" style="text-decoration: none;
+                        color: white;">recent history</a></li> <br>
+                    <li><a href="{% url 'sellerpage:logout_cust' %}" class="li0" style="text-decoration: none;
+                        color: white;">logout</a></li> <br>
+                </ul>
+            </div>
+        </div>

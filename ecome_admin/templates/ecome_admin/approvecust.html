@@ -1,0 +1,41 @@
+{% extends 'ecome_admin/admin_home.html' %}
+
+{% block content %}
+    <div class="text-center p-4">
+        <h1>APPROVE CUSTOMER</h1>
+    </div>
+<div class="container">
+    <div class="row">
+        
+        <div class="">
+            <table class="table">
+                <thead>
+                <th>Seller Name</th>
+                <th>email</th>
+                <!-- <th>Password</th> -->
+                <th>address</th>
+                <th>gender</th>
+                <th>Status</th>
+                <th>Remove</th>
+                </thead>
+                <tbody>
+                    {% for customer in customer_list %}
+                <tr class="table-active">
+                   <td>{{customer.customer_name}}</td>
+                   <td>{{customer.customer_email}}</td>
+                   <!-- <td>{{customer.customer_password}}</td> -->
+                   <td>{{customer.customer_addres}}</td>
+                   <td>{{customer.customer_gender}}</td>
+                   <td>active</td>
+                   <td><button type="button" class="btn btn-danger"><a
+                    href="{% url 'ecom_admin:delete_cust' customer.id %}"><b>REMOVE</b></a></button></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

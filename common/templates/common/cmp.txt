@@ -1,0 +1,26 @@
+ <div class="pt-5" style="padding-left: 370px; height:100vh;background-color: darkkhaki;">
+    
+    <div class="" style=" height: 500px; width:50% ;" >
+        <div class="row p-3">
+            <div class="col-md-6 p-5">
+                <div class="card ml-3 " style="width:250px ;">
+                    <div class="card-body"  style="height: 250px;">
+                        <h5 class="card-title"><i>customer</i></h5><br>
+                        <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+                        <a href="{% url 'common:cuslog' %}" class="btn btn-primary" style="background-color: beige; color: blue;">CUSTOMER LOGIN</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 p-5" >
+                <div class="card ml-3" style="width:250px ;">
+                    <div class="card-body" style="height: 250px;" >
+                        <h5 class="card-title"><i>seller</i></h5><br>
+                        <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+                        <a href="{% url 'common:seller' %}" class="btn btn-primary" style="background-color: beige; color: blue;">SELLER LOGIN</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   </div>

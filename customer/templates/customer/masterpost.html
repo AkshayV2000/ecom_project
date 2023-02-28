@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>customer_home</title>
+    <link rel="stylesheet" href="{% static 'css/cut.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/cut.css' %}">
+    {% block header %}
+
+    {% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark" style="padding: 2%;">
+        <div class="container-fluid">
+            <a href="{% url 'customer:myprofile' %}"><img src="{% static 'images/ku.jpg' %}" class="admin_img " alt=""
+                    style="width: 40px;
+    height: 35px;
+    border-radius: 100px;"></a>
+            <!-- <a class="navbar-brand" href="#"></a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'customer:customer_home' %}"
+                            style="color: white;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'customer:cart' %}" style="color: white;">myCart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'customer:cat_l' %}" style="color: white;">Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'customer:c_custpass' %}" style="color: white;">change
+                            password</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'customer:myorder' %}" style="color: white;">myOrder</a>
+                    </li>
+                    <li class=" nav-item">
+                        <a class="nav-link active" href="{% url 'customer:logout_cust' %}"
+                            style="color: white;">logout</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    {% block post %}
+    {% endblock %}
+
+
+    <div class="row" style="margin-top: 3%; margin-bottom: 5%;    ">
+        <div class="col-md-12">
+            <div class="container" id="space-for">
+                <div class="row">
+                    <b class="text-center"> PRODUCTS</b>
+                    {% for product in products %}
+                    <div class="col-md-4 col-12 p-2" style="overflow: hidden;">
+                        <div class="card" style="width: 18rem; height: 18rem;">
+                            <a href=""><img src="{{product.product_image.url}}" class="card-img-top" alt="..."
+                                    style="width:90px; height:90px;"></a>
+                            <div class="card-body p-3">
+                                <h5 class="card-title" style="margin-bottom: 0;">{{product.product_name|title}}</h5>
+                                <h2 style="margin-bottom: 0;">Rs.{{product.product_price}}</h2>
+                                <!-- <p class="card-text" style="margin-bottom: 0; overflow: hidden;">{{product.product_discription}}</p> -->
+                                <p class="card-text" style="margin-bottom: 0;">seller:{{product.seller.seller_name}}</p>
+                                <a href="{% url 'customer:pro_details' product.id %}" class="btn btn-primary"
+                                    style="text-decoration: none;">details</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer id="foot_er">
+        <div class="row">
+            <div class="col-md-3">
+                <a class="nav-link" href="" style="color: aliceblue;"><b>About</b></a> <br><br>
+                <a class="nav-link" href="" style="color: aliceblue;"><b>contact</b></a><br><br>
+                <a class="nav-link" href="" style="color: aliceblue;"><b>email@gamil.com</b></a>
+            </div>
+            <div class="col-md-3">
+                <a class="nav-link" href="" style="color: aliceblue;"><b>About</b></a>
+            </div>
+            <div class="col-md-3">
+                <a class="nav-link" href="" style="color: aliceblue;"><b>About</b></a>
+            </div>
+        </div>
+
+    </footer>
+</body>

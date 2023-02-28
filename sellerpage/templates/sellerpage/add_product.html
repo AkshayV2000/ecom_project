@@ -1,0 +1,51 @@
+{% extends 'sellerpage/seller_home.html' %}
+
+{% block content %}
+
+{% load static %}
+<div>
+  <h1 class="text-center">ADD PRODUCTS</h1>
+</div>
+<div style="background-color: rgb(113, 223, 172); height: 550px;" >
+  <div class="div1 mt-5 ms-5 p-4">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{msg}}
+      <div class="mb-3">
+        <label for="" class="form-label">PRODUCT NAME </label>
+        <input type="text" name="p_name" class="form-control" id="" aria-describedby="">
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">PRODUCT CATOGARY</label>
+        <select name="catogary" id="">
+          <option value="books">books</option>
+          <option value="movies">movies</option>
+          <option value="games">games</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">PRODUCT PRICE</label>
+        <input type="number" name="p_price" class="" id="">
+      </div>
+      <div class="mb-3">
+          <label class="form-check-label" for="exampleCheck1">PRODUCT NUMBER</label>
+        <input type="number" name="p_no" class="form-control" id="">
+      </div>
+      <div class="mb-3">
+      <label class="form-check-label" for="exampleCheck1">PRODUCT DISCRIPTION</label>
+      <input type="textarea" name="p_dis" class="form-control" id="">
+      </div>
+      <div class="mb-3">
+          <label class="form-check-label" for="exampleCheck1">CURRENT STOCK</label>
+        <input type="number" name="P_stock" class="" id="">
+      </div>
+      <div>
+        <label for="" class="col-form-label text-light">FILE UPLODE</label>
+        <input type="file" name="p_file" id="" class="form-control" aria-describedby="">
+      </div> <br>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+  {% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'ecome_admin/admin_home.html' %}
+
+{% block content %}
+
+    <div class="text-center p-4">
+        <h1>VIEW CUSTOMER</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            
+            <div class="">
+                <table class="table">
+                    <thead>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Username</th>
+                        <th>Phone Number</th>
+                        <th>Address</th>
+                        <th>Gender</th>
+                        <th>Password</th>
+                    
+                    </thead>
+                    <tbody>
+                        {% for customer in cust_list %}
+                    <tr class="table-active">
+                        <td>{{customer.customer_name}}</td>
+                        <td>{{customer.customer_email}}</td>
+                        <td>{{customer.customer_username}}</td>
+                        <td>{{customer.customer_phone}}</td>
+                        <td>{{customer.customer_addres}}</td>
+                        <td>{{customer.customer_gender}}</td>
+                        <td>{{customer.customer_password}}</td>
+                        
+                       
+                    </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    
+        </div>
+    </div>
+
+    {% endblock %}

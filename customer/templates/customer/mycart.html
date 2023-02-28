@@ -1,0 +1,44 @@
+{% extends 'customer/customer_home.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="container p-4">
+    <h2 class="text-center p-4">MY CART</h2>
+
+   <div class="row bg-light">
+    {% if products %}
+    <table class="table table--striped-colums">
+        <tr>
+            <th>PRODUCT NAME</th>
+            <!-- <th>PRODUCT DISCRIPTION</th> -->
+            <th>PRODUCT NUMBER</th>
+            <th>PRODUCT STOCK</th>
+            <th>PRODUCT IMAGE</th>
+            <th>PRODUCT PRICE</th>
+            <th>PRODUCT SELLER</th>
+            <th>REMOVE</th>
+        </tr>
+        {% for product_cart in products %}
+        <tr>
+            <th>{{product_cart.product_d.product_name|title}}</th>
+            <!-- <th>{{product_cart.product_d.product_discription}}</th> -->
+            <th>{{product_cart.product_d.product_number}}</th>
+            <th>{{product_cart.product_d.product_stock}}</th>
+            <th><img src="{{product_cart.product_d.product_image.url}}" class="card-img-top" alt="..." style="width:200px; height:200px;"></th>
+            <th>{{product_cart.product_d.product_price}}</th>
+            <th>{{product_cart.product_d.seller.seller_name}}</th>
+            <th><a href="{% url 'customer:remove_cart' product_cart.product_d.id %}"><button class="btn btn-sucess" style="background-color: rgb(207, 50, 50);">REMOVE</button></a></th>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+
+    <h1 style="color: red; text-align: center;"><i>cart empty</i></h1>
+
+    {% endif %}
+   </div>
+</div>
+
+{% endblock %}

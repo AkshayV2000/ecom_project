@@ -1,0 +1,21 @@
+
+<div class="col-3 ms-4 mt-4">
+    <div class="card" style="width: 18rem; display:inline-block;">
+        <img src="{{details.product_image.url}}" class="card-img-top" alt="..."
+            style="width:200px; height:200px;"></a><br><br>
+        <div class="card-body">
+            <form method = "POST">
+                {% csrf_token %}
+            <h5 class="card-title">{{details.product_name}}</h5><br>
+            <p class="card-text">{{details.product_discription}}.</p>
+            <p>{{details.product_price}}</p><br><br>
+            
+            <button type="submit" class="btn btn-primary">ADD TO CART</button><br><br>
+            {{msg}}
+           
+            </form>
+            <a href=""><button type="submit" class="btn btn-primary" style="background-color: rgb(238, 167, 35);">BUY</button></a><br><br>
+            <a href="{% url 'customer:customer_home' %}"><button>back</button></a>
+
+        </div>
+    </div>

@@ -1,0 +1,59 @@
+{% extends 'ecome_admin/admin_home.html' %}
+
+{% block content %}
+<div class="text-center p-4">
+    <h1>APPROVE SELLER</h1>
+</div>
+<div class="container">
+    <div class="row">
+
+        <div class="">
+            <table class="table">
+                <thead>
+                    <th>Seller Name</th>
+                    <th>photo</th>
+                    <th>Address</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Company Name</th>
+                    <th>Account Holder Name</th>
+                    <th>IFSC</th>
+                    <th>Account Number</th>
+                    <th>Password</th>
+                    <th>Status</th>
+                    <th>Remove</th>
+                </thead>
+                <tbody>
+                    {% for seller in seller_list %}
+                    <tr class="table-active">
+                        <td>{{seller.seller_name|title}}</td>
+                        <td><img src="{{seller.seller_pic.url}}" alt=""></td>
+                        <td>{{seller.seller_addres}}</td>
+                        <td>{{seller.seller_phone}}</td>
+                        <td>{{seller.seller_email}}</td>
+                        <td>{{seller.seller_companyname}}</td>
+                        <td>{{seller.seller_accholdername}}</td>
+                        <td>{{seller.seller_ifsc}}</td>
+                        <td>{{seller.seller_accno}}</td>
+                        <td>{{seller.seller_password}}</td>
+                        <td>
+                            {% if not seller.approved %}
+                            <button type="button" class="btn btn-primary"><a
+                                    href="{% url 'ecom_admin:approve' seller.id %}">APPROVE</a></button>
+                            {% else %}
+                            <p style="color: gray;"><b>APPROVE</b></p>
+                            {% endif %}
+                        </td>
+                        <td> 
+                            <button type="button" class="btn btn-danger"><a
+                                    href="{% url 'ecom_admin:delete_seller' seller.id %}"><b>REMOVE</b></a></button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

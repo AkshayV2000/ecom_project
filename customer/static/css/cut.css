@@ -1,0 +1,45 @@
+#center{
+    height: 100vh;
+    width: 500px;
+    margin-top: 2cm;
+    padding-left: 3cm;
+    overflow: hidden;
+    /* border: 2px solid black; */
+    
+}
+#card{
+    width:350px;
+    height:400px;
+   
+}
+#btn-link{
+    height: 1cm;
+    width: 3cm;
+    background-color: rgb(222, 156, 35);
+}
+#btn-sub{
+    background-color: rgb(234, 234, 69);
+    margin-left: 0.6cm;
+}
+#details{
+    position:relative;
+    width: 500px;
+    height: 100%;
+    margin-top: 2cm;
+    /* border: 2px solid black; */
+    
+}
+#foot_er{
+    height: 200px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.904);
+    
+}
+#space-for{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(233, 237, 237);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 3%;
+   
+}

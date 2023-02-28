@@ -1,0 +1,13 @@
+.cust{
+    margin-left: 350px;
+    height: 500px;
+    width: 600px;
+    background-color:rgb(68, 65, 65);
+    color: bisque;
+}
+.sign{
+    background-color: rgb(96, 96, 187);
+    height: 700px;
+    width: 950px;
+    margin-left: 200px;
+}

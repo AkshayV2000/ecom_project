@@ -1,0 +1,196 @@
+{% extends 'customer/customer_home.html' %}
+
+{% block content %}
+
+{% load static %}
+<style>
+    .ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: inherit;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .li {
+    justify-content: center;
+    font-size: larger;
+  }
+
+  .li button {
+    display: block;
+    color: #000000;
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: inherit;
+    border: none;
+  }
+</style>
+<!-- <nav>
+    <ul>
+        <li id="all">all</li>
+        <li id="book">books</li>
+        <li id="movie">movies</li>
+        <li id="game">games</li>
+    </ul>
+</nav> -->
+<div class="nab">
+    <div class="row">
+        <div class="col-12">
+            <ul class="ul">
+                <li class="li"><button id="all">all</button></li>
+                <li class="li"><button id="book">books</button></li>
+                <li class="li"><button id="movie">movies</button></li>
+                <li class="li"><button id="game">games</button></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="al">
+    <div class="row">
+
+        {% for product in products %}
+        <div class="col-3 ms-4 p-3">
+            <div class="card" style="width: 18rem;">
+                <a href="{% url 'customer:pro_details' product.id %}"><img src="{{product.product_image.url}}"
+                        class="card-img-top" alt="..." style="width:200px; height:200px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title">{{product.product_name|title}}</h5>
+                    <h2>Rs.{{product.product_price}}</h2>
+                    <!-- <p class="card-text">{{product.product_discription}}</p> -->
+                    <p class="card-text">seller:{{product.seller.seller_name}}</p>
+                    <a href="{% url 'customer:pro_details' product.id %}" class="btn btn-primary"
+                        style="text-decoration: none;">details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+<div id="bks" style="display: none;">
+    <div class="row">
+
+        {% for product in products %}
+        {% if product.product_catogari == 'books' %}
+        <div class="col-3 ms-4 p-3">
+            <div class="card" style="width: 18rem;">
+                <a href="{% url 'customer:pro_details' product.id %}"><img src="{{product.product_image.url}}"
+                        class="card-img-top" alt="..." style="width:200px; height:200px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title">{{product.product_name|title}}</h5>
+                    <h2>Rs.{{product.product_price}}</h2>
+                    <!-- <p class="card-text">{{product.product_discription}}</p> -->
+                    <p class="card-text">seller:{{product.seller.seller_name}}</p>
+                    <a href="{% url 'customer:pro_details' product.id %}" class="btn btn-primary"
+                        style="text-decoration: none;">details</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+    </div>
+</div>
+<div id="mvs" style="display: none;">
+    <div class="row" >
+
+        {% for product in products %}
+        {% if product.product_catogari == 'movies' %}
+        <div class="col-3 ms-4 p-3">
+            <div class="card" style="width: 18rem;">
+                <a href="{% url 'customer:pro_details' product.id %}"><img src="{{product.product_image.url}}"
+                        class="card-img-top" alt="..." style="width:200px; height:200px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title">{{product.product_name|title}}</h5>
+                    <h2>Rs.{{product.product_price}}</h2>
+                    <!-- <p class="card-text">{{product.product_discription}}</p> -->
+                    <p class="card-text">seller:{{product.seller.seller_name}}</p>
+                    <a href="{% url 'customer:pro_details' product.id %}" class="btn btn-primary"
+                        style="text-decoration: none;">details</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+    </div>
+</div>
+<div id="gms" style="display: none ;">
+    <div class="row" >
+
+        {% for product in products %}
+        {% if product.product_catogari == 'games' %}
+        <div class="col-3 ms-4 p-3">
+            <div class="card" style="width: 18rem;">
+                <a href="{% url 'customer:pro_details' product.id %}"><img src="{{product.product_image.url}}"
+                        class="card-img-top" alt="..." style="width:200px; height:200px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title">{{product.product_name|title}}</h5>
+                    <h2>Rs.{{product.product_price}}</h2>
+                    <!-- <p class="card-text">{{product.product_discription}}</p> -->
+                    <p class="card-text">seller:{{product.seller.seller_name}}</p>
+                    <a href="{% url 'customer:pro_details' product.id %}" class="btn btn-primary"
+                        style="text-decoration: none;">details</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+    </div>
+</div>
+<script>
+    var a = document.getElementById('all')
+    var b = document.getElementById('book')
+    var m = document.getElementById('movie')
+    var g = document.getElementById('game')
+    console.log(g)
+    a.onclick = function () {
+        console.log('b')
+        document.getElementById('al').style.display = 'block'
+        document.getElementById('bks').style.display = 'none'
+        document.getElementById('mvs').style.display = 'none'
+        document.getElementById('gms').style.display = 'none'
+
+    }
+    b.onclick = function () {
+        console.log('b')
+        document.getElementById('al').style.display = 'none'
+        document.getElementById('bks').style.display = 'block'
+        document.getElementById('mvs').style.display = 'none'
+        document.getElementById('gms').style.display = 'none'
+
+    }
+    m.onclick = function () {
+        console.log('m')
+        document.getElementById('al').style.display = 'none'
+        document.getElementById('bks').style.display = 'none'
+        document.getElementById('mvs').style.display = 'block'
+        document.getElementById('gms').style.display = 'none'
+
+    }
+    g.onclick = function () {
+        console.log('g')
+        document.getElementById('al').style.display = 'none'
+        document.getElementById('bks').style.display = 'none'
+        document.getElementById('mvs').style.display = 'none'
+        document.getElementById('gms').style.display = 'block'
+
+    }
+
+
+
+
+
+
+</script>
+
+{% endblock %}

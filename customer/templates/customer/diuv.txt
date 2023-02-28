@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="cc"  ">
+
+
+            <div class="col-md-4" style="position: sticky; overflow: scroll;">
+                <div id="" style="position: fixed; top:auto; height: 0%;">
+                    <img src="{{details.product_image.url}}" class="card-img-top" id="card" alt="..."><br><br>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" id="btn-sub">ADD TO CART</button>
+                        {{msg}}
+                        <a href=""><button class="btn btn-primary" id="btn-link"> BUY NOW</button></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8" style="margin-left:40% ;" style="position: sticky; overflow: scroll;">
+            <div class="card-body" id="details" style="position: fixed; top:auto; height: 50%;">
+
+
+                <h5 class="card-title">{{details.product_name}}</h5><br>
+                <h1 class="card-text">{{details.product_price}}</h1>
+                <p class="card-text">{{details.product_discription}}.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati sit accusamus reiciendis neque
+                    eum consectetur veniam autem sint rem voluptas earum numquam laboriosam praesentium sapiente,
+                    inventore quos eveniet cumque ullam?</p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima nemo dicta deleniti sequi quasi.
+                Dolorum suscipit assumenda eveniet sint quisquam sit tempore magnam voluptate unde quibusdam et
+                laborum rerum reprehenderit, quis nam quaerat dicta ullam quam a sapiente officia dolor commodi
+                totam cumque. Harum accusantium distinctio eius, non quam odit delectus hic reiciendis! Natus
+                ratioates reprehenderit, atque, impedit ex numquam a
+                officiis nam molestias neque itaque vitae quo accusantium id laudantium beatae quos minima, velit
+                dolore voluptatum. Assumenda deserunt minus ad dolor quidem nam repellendus velit eius quisquam
+                aliquid, praesentium unde? Fuga nulla quidem dignissimos vel quia neque dolorem qui sint blanditiis
+                tempore dolores suscipit, obcaecati ducimus odio error temporibus. Repellendus ipsa aspernatur
+                dignissimos eius alias itaque earum ab temporibus et sed animi quod eaque blanditiis nostrum fugit
+                delectus, minima corrupti aliquid! Modi quisqlaboriosam eveniet ab
+                corporis illum ipsa quis dicta, corrupti pariatur aliquam placeat a similique obcaecati ex unde at
+                voluptates vero blanditiis iure eum hic! Quisquam placeat ea nihil maiores non! Minus odio delectus
+                optio et harum ex voluptate. Debitis minima facilis voluptatum repudiandae, placeat possimus
+                explicabo atque illum similique nesciunt enim nulla natus et quidem, itaque eum modi veritatis?
+                Mollitia deserunt quia laudantiumnim necessitatibus, esse accusantium sunt
+                laboriosam natus maiores reprehenderit? Eaque consequatur odio quidem numquam iuas
+
+            </div>
+        </div>
+    </div>
+</div>
